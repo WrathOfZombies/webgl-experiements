@@ -18,6 +18,7 @@ export default function Picker() {
         color={item}
         onChange={(color) => {
           if (current) {
+            state.swatch = undefined
             state.items[current] = color
           }
         }}

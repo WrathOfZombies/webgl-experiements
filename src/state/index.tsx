@@ -14,6 +14,7 @@ type ShoeSegments = {
 type State = {
   current: keyof ShoeSegments | undefined
   items: ShoeSegments
+  swatch: any | undefined
 }
 
 // Using a Valtio state model to bridge reactivity between
@@ -30,6 +31,7 @@ const state = proxy<State>({
     band: "#ffffff",
     patch: "#ffffff",
   },
+  swatch: undefined,
 })
 
 export { state, type State }

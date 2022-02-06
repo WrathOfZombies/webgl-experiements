@@ -1,5 +1,6 @@
 import { proxy, useSnapshot } from "valtio"
-import { Colorable, Swatch } from "../../concepts/swatches"
+
+import { Colorable, Swatch } from "../../concepts/swatches/parseSwatchFromUrl"
 
 type ShoeSegments = "laces" | "mesh" | "caps" | "inner" | "sole" | "stripes" | "band" | "patch"
 

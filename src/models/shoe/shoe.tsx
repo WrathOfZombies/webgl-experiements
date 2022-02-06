@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 
 import { useGLTF } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
-import { useSnapshot } from "valtio"
+
 import { SHOE_STATE } from "./shoeState"
 
 const Shoe = () => {

@@ -1,22 +1,23 @@
 import { Suspense } from "react"
 
-import { ContactShadows, Environment, OrbitControls, ScrollControls } from "@react-three/drei"
+import { ContactShadows, Environment, OrbitControls } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 
-import Picker from "./Picker"
-import Shoe from "./Shoe"
-import { Swatches } from "./Swatches"
+import { Swatch, Swatches } from "../concepts/swatches"
+import { Shoe, SHOE_STATE } from "../models/shoe"
 
-export default function App() {
+const App = () => {
+  const onSwatchClicked = (swatch: Swatch) => {
+    SHOE_STATE.applySwatch(swatch)
+  }
+
   return (
     <>
       <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 4], fov: 50 }}>
         <ambientLight intensity={0.7} />
         <spotLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
         <Suspense fallback={null}>
-          <ScrollControls pages={3}>
-            <Shoe />
-          </ScrollControls>
+          <Shoe />
           <Environment preset="city" />
           <ContactShadows
             {...({} as any)}
@@ -31,8 +32,9 @@ export default function App() {
         </Suspense>
         <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false} enablePan={false} />
       </Canvas>
-      <Picker />
-      <Swatches />
+      <Swatches onSwatchClicked={onSwatchClicked} />
     </>
   )
 }
+
+export { App }

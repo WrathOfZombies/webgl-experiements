@@ -1,8 +1,8 @@
 import { useState } from "react"
 
 import { Swatches } from "../concepts/swatches/Swatches"
-import { OfficeScene } from "../scenes/officeScene"
-import { ShoeScene } from "../scenes/shoeScene"
+import { OfficeScene } from "../scenes/OfficeScene"
+import { ShoeScene } from "../scenes/ShoeScene"
 
 const scenes: React.FC[] = [ShoeScene, OfficeScene]
 

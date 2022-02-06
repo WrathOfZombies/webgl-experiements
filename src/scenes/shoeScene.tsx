@@ -4,6 +4,8 @@ import { ContactShadows, Environment, OrbitControls } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 
 import { Shoe } from "../models/shoe/shoe"
+import { Swatches } from "../concepts/swatches/Swatches"
+import { SHOE_STATE } from "../models/shoe/shoeState"
 
 const ShoeScene = () => {
   return (
@@ -27,6 +29,7 @@ const ShoeScene = () => {
         </Suspense>
         <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false} enablePan={false} />
       </Canvas>
+      <Swatches onSwatchClicked={(swatch) => SHOE_STATE.applySwatch(swatch)} />
     </>
   )
 }
